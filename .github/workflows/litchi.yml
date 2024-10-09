@@ -3,7 +3,7 @@ on: push
 jobs:
   bun-build:
     runs-on: ubuntu-latest
-    setps:
+    steps:
       - uses: actions/checkout@v4
       - run: bun install
       - run: bun run build
