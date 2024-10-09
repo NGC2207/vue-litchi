@@ -17,8 +17,7 @@ jobs:
           echo "BUN_INSTALL=$HOME/.bun" >> $GITHUB_ENV
           echo "PATH=$HOME/.bun/bin:$PATH" >> $GITHUB_ENV
 
-      - name: install dependencies
-        run: bun install
-
-      - name: package project
-        run: bun run build
+      - name: install dependencies and package project
+        run: |
+          bun install
+          bun run build
