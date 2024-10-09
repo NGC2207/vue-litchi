@@ -1,6 +1,8 @@
 name: package vue.js project
-
 on: push
+
+permissions:
+  contents: write
 
 jobs:
   bun-build:
@@ -21,3 +23,9 @@ jobs:
         run: |
           bun install
           bun run build
+
+      - name: deploy to github pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
