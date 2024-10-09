@@ -1,13 +1,24 @@
+name: package vue.js project
+
 on: push
 
 jobs:
   bun-build:
+    name: bun build job
     runs-on: ubuntu-latest
+
     steps:
+      - name: checkout repository
       - uses: actions/checkout@v4
+
+      - name: install bun
       - run: |
           curl -fsSL https://bun.sh/install | bash
           echo "BUN_INSTALL=$HOME/.bun" >> $GITHUB_ENV
           echo "PATH=$HOME/.bun/bin:$PATH" >> $GITHUB_ENV
+
+      - name: install dependencies
       - run: bun install
+
+      - name: package project
       - run: bun run build
