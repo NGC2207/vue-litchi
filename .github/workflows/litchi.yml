@@ -5,5 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: |
+        curl -fsSL https://bun.sh/install | bash
+        echo 'export PATH="$HOME/.bun/bin:$PATH"' >> $GITHUB_ENV
       - run: bun install
       - run: bun run build
