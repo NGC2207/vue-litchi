@@ -1,12 +1,10 @@
 on: push
 
 jobs:
-  job1:
+  bun-build:
     runs-on: ubuntu-latest
-    steps:
+    setps:
       - run: pwd
-      - run: ls
-  job2:
-    runs-on: windows-latest
-    steps:
-      - run: node --version
+      - run: bun --version
+      - run: bun install
+      - run: bun run build
